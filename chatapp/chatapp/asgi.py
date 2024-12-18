@@ -15,7 +15,7 @@ application = ProtocolTypeRouter({
     "websocket": AuthMiddlewareStack(
         URLRouter(
             [
-                re_path(r'^ws/chat/(?P<user1_id>[0-9a-f]{32})/(?P<user2_id>[0-9a-f]{32})/$', ChatConsumer.as_asgi()),
+                re_path(r'^ws/chat/(?P<user1_id>[0-9a-f]{4})/(?P<user2_id>[0-9a-f]{4})/$', ChatConsumer.as_asgi()),
             ]
         )
     ),

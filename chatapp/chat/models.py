@@ -3,8 +3,12 @@ import uuid
 
 # Create your models here.
 
+def generate_short_user_id():
+    # Generate a random UUID, take the hex representation, and return the first 4 characters
+    return uuid.uuid4().hex[:4]
+
 class AnonymousUser(models.Model):
-    user_id = models.UUIDField(default=lambda: uuid.uuid4().hex, editable=False, unique= True)
+    user_id = models.CharField(        default=generate_short_user_id, max_length= 4, editable=False, unique= True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class ChatSession(models.Model):

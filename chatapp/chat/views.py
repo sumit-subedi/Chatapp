@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
+from django.core.cache import cache
 from rest_framework.response import Response
 from .models import AnonymousUser
+
 
 # Create your views here.
 
@@ -12,3 +14,14 @@ class AnonymousLoginView(APIView):
         user = AnonymousUser.objects.create()
         return Response({'user_id': str(user.user_id)})
     
+class OnlineUsersView(APIView):
+    def get(self, request):
+        # Retrieve all user IDs from the database
+        all_users = AnonymousUser.objects.all()
+        online_users = []
+
+        for user in all_users:
+            if cache.get(f"user_online_{user.user_id}"):
+                online_users.append(str(user.user_id))
+
+        return Response({"online_users": online_users})
