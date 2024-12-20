@@ -1,6 +1,10 @@
 from channels.generic.websocket import AsyncWebsocketConsumer
 from django.core.cache import cache
 import json
+import redis
+
+redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
+
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -9,8 +13,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
         print("Connecting", self.user1_id, self.user2_id)
 
         # Mark the user as online in the cache
-        cache.set(f"user_online_{self.user1_id}", True, timeout=None)  # No timeout
-        
+        redis_client.sadd("online_users", self.user1_id)
+
 
         sorted_ids = sorted([self.user1_id, self.user2_id])
         self.room_group_name = f"chat_{sorted_ids[0]}_{sorted_ids[1]}"
@@ -26,7 +30,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             self.room_group_name,
             self.channel_name
         )
-        cache.delete(f"user_online_{self.user1_id}")
+        redis_client.srem("online_users", self.user1_id)
 
 
     async def receive(self, text_data):

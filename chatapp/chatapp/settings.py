@@ -92,6 +92,9 @@ DATABASES = {
     }
 }
 
+CORS_ALLOW_CREDENTIALS = True
+
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React frontend URL
 ]
