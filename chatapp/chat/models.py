@@ -8,7 +8,9 @@ def generate_short_user_id():
     return uuid.uuid4().hex[:4]
 
 class AnonymousUser(models.Model):
-    user_id = models.CharField(        default=generate_short_user_id, max_length= 4, editable=False, unique= True)
+    user_id = models.CharField(default=generate_short_user_id, max_length= 4, editable=False, unique= True)
+    is_online = models.BooleanField(default=False)
+    is_available = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class ChatSession(models.Model):
