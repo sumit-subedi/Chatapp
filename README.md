@@ -8,14 +8,29 @@ No personal information is required, and messages are **not stored anywhere**, e
 ---
 
 ## **Features**
-- **🕵️‍♂️ Complete Anonymity**: No need for usernames or passwords.
-- **Unique User IDs**: Each login generates a **random 4-digit user ID** for connecting with others.
-- **No Message Storage**: Messages are not stored on the server, ensuring complete privacy.
-- **Direct Connections**: Chat directly with another user by entering their unique ID.
-- **Dark Mode Support**: Choose between light and dark themes for a comfortable user experience.
+**🕵️‍♂️ Complete Anonymity**
 
-### **Upcoming Features (TODO)**
-- **Random User Matching**: Connect with a random user by clicking "Search Random."
+- Users don’t need to provide any personal information.
+
+- Unique four-digit user ID generated for each session.
+
+**🔒 Privacy First**
+
+- Messages are not stored anywhere—ensuring secure and transient communication.
+
+**🔗 User Search and Connection**
+
+- Connect with specific users by entering their unique four-digit user ID.
+
+- Real-time connection requests and notifications.
+
+**🎨 Light and Dark Modes**
+
+- Toggle between light and dark themes for a personalized user experience.
+
+**🚀 Planned Features (To-Do)**
+
+- Random User Match: A feature to connect with a random user when selecting the "Search Random" option.
 
 ---
 
@@ -31,8 +46,8 @@ Ensure you have the following installed:
 ### **Setup Instructions**
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/anonymous-chat-app.git
-   cd anonymous-chat-app
+   git clone https://github.com/sumit-subedi/chatapp.git
+   cd chatapp
    ```
 
 2. **Backend Setup:**
@@ -66,14 +81,30 @@ Ensure you have the following installed:
      ```
 
 4. **Access the App:**
-   - Open your browser and go to `http://127.0.0.1:8000`.
+   - Open your browser and go to `http://127.0.0.1:3000`.
 
 ---
 
 ## **How It Works**
-1. **Get Your Unique ID**: Upon logging in, you'll receive a unique 4-digit ID.
-2. **Connect with Others**: Enter another user's ID to start chatting.
-3. **Private Messaging**: All messages are exchanged in real-time with no server storage.
+1. **Logging In**
+
+- Upon opening the app, you’re automatically assigned a four-digit unique user ID.
+
+- Share this ID with others to connect.
+
+2. **Connecting with a User**
+
+- Enter the target user’s four-digit user ID in the input field.
+
+- Click the "Connect" button to send a connection request.
+
+- Wait for the target user to accept or reject the connection.
+
+3. **Chatting**
+
+- Once connected, exchange messages in real-time.
+
+- Disconnect anytime to end the chat.
 
 ---
 
@@ -85,7 +116,21 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for d
 ## **Contributions**
 We welcome contributions! Feel free to submit issues or pull requests.
 
+1. Fork the repository.
+
+2. Create a new branch for your feature or bug fix.
+
+3. Commit your changes and push to your fork.
+
+4. Open a pull request.
+
 ---
 
 ## **Contact**
-For any questions or suggestions, please contact the repository owner.
+Feel free to reach out for any queries or suggestions:
+
+- Email: vanje.sumit@gmail.com
+
+- GitHub: sumit-subedi
+
+Enjoy chatting anonymously! 😊
